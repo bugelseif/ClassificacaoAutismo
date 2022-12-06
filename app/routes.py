@@ -41,3 +41,12 @@ def resultado_form():
     dados = "".join(info)
     verificacao = teste(dados) 
     return jsonify(verificacao)
+
+
+#Apenas teste para retorno de páginas
+@app.route('/exemploPagina') 
+def exemplo_pagina(): 
+    dados = "a=1&b=0&c=1&d=3&e=3&f=2&g=0&h=1&i=1&j=0&k=0&l=1&m=0&n=0&o=1&p=0&q=0&r=0&s=1"
+    response = requests.get("http://127.0.0.1:5000/resultadoForms?" + dados)
+    resposta = response.json()
+    return render_template('testepagina.html', resultado = resposta)
