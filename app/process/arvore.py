@@ -13,10 +13,10 @@ import sklearn.metrics
 
 
 
-dados = pd.read_csv('data.csv')
+dados = pd.read_csv('Dados Autismo.csv')
 dados.drop(['id'], axis = 1, inplace = True)
 le = LabelEncoder()
-dados['Grau Austismo']=le.fit_transform(dados['Grau Austismo'])
+# dados['GrauAustismo']=le.fit_transform(dados['GrauAustismo'])
 print("Quantidade de colunas: ",dados.shape[1])
 dados.head(10)
 
@@ -37,9 +37,10 @@ print("Quantidade de colunas do dataframe reduzido: ",dados2.shape[1])
 
 
 
+print(dados2["GrauAutismo"])
 
-X = dados2.drop(["Grau Austismo"] ,axis="columns")
-y = dados2['Grau Austismo']
+X = dados2.drop(["GrauAutismo"] ,axis="columns")
+y = dados2['GrauAutismo']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
 modelo = linear_model.LogisticRegression()
 modelo.fit(X_train, y_train)
@@ -61,8 +62,8 @@ print(relatorio)
 
 
 
-X = dados2.drop(["Grau Austismo"] ,axis="columns")
-y = dados2['Grau Austismo']
+X = dados2.drop(["GrauAutismo"] ,axis="columns")
+y = dados2['GrauAutismo']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
 modelo = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0)
 modelo.fit(X_train, y_train)
@@ -77,48 +78,49 @@ print(relatorio)
 
 
 
-X = dados2.drop(["Grau Austismo"] ,axis="columns")
-y = dados2['Grau Austismo']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
-modelo = DecisionTreeClassifier(criterion='entropy', max_depth=5, random_state=0)
-modelo.fit(X_train, y_train)
-y_pred = modelo.predict(X_test)
-acc = accuracy_score(y_test, y_pred)
-print("Acurácia: ", acc)
-matriz = confusion_matrix(y_test, y_pred)
-print(matriz)
-relatorio = classification_report(y_test, y_pred)
-print(relatorio)
+
+# X = dados2.drop(["GrauAutismo"] ,axis="columns")
+# y = dados2['GrauAutismo']
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
+# modelo = DecisionTreeClassifier(criterion='entropy', max_depth=5, random_state=0)
+# modelo.fit(X_train, y_train)
+# y_pred = modelo.predict(X_test)
+# acc = accuracy_score(y_test, y_pred)
+# print("Acurácia: ", acc)
+# matriz = confusion_matrix(y_test, y_pred)
+# print(matriz)
+# relatorio = classification_report(y_test, y_pred)
+# print(relatorio)
 
 
 
-X = dados2.drop(["Grau Austismo"] ,axis="columns")
-y = dados2['Grau Austismo']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
-modelo = DecisionTreeClassifier(criterion='entropy', max_depth=10, random_state=0)
-modelo.fit(X_train, y_train)
-y_pred = modelo.predict(X_test)
-acc = accuracy_score(y_test, y_pred)
-print("Acurácia: ", acc)
-matriz = confusion_matrix(y_test, y_pred)
-print(matriz)
-relatorio = classification_report(y_test, y_pred)
-print(relatorio)
+
 
 def teste(dados):
-    with open('example.csv', 'w', newline='') as file: #escreve os dados em um arquivo csv
+    
+   
+   
+    with open('example.csv', 'w', newline='',encoding="utf8") as file: #escreve os dados em um arquivo csv
         writer = csv.writer(file)
         writer.writerow(X_test) # cabeçalho
-        writer.writerow(dados) # dados
+        writer.writerow(dados.encode("utf8")) # dados
     arquivo = pd.read_csv('example.csv') # lê os dados do arquivo csv que foi escrito
+   
     lista_numpy = modelo.predict(arquivo) # utiliza a árovere e retorna um resultado
     lista_resultado = lista_numpy.tolist() # convertendo o resultado que está como listanumpy em lista
     if lista_resultado[0]==0: #o resultado retornado é 0 para negativo e 1 para positivo nesse exemplo
       
-            resposta = 'negativo'
+            resposta = 'Não Autista'
     elif  lista_resultado[0]==1:
-            resposta = 'positivo'
+            resposta = 'Leve'
+            
+    elif  lista_resultado[0]==2:
+            resposta = 'Moderado'
+            
+    elif  lista_resultado[0]==3:
+            resposta = 'Severo'
     else:
             resposta = 'erro'
     
     return resposta
+

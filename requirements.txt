@@ -1,3 +1,8 @@
 Flask
 flask-wtf
 python-dotenv
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
