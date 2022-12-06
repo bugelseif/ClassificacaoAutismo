@@ -37,6 +37,7 @@ def exemplo_form():
 # É para funcionar com form, a orderm dos dados precisa ser a mesma que do arquivo csv usado para criar a árvore
 @app.route('/resultadoForms')
 def resultado_form(): 
-    dados = request.args.values()
+    info = request.args.values()
+    dados = "".join(info)
     verificacao = teste(dados) 
     return jsonify(verificacao)
