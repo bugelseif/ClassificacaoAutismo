@@ -14,9 +14,9 @@ import sklearn.metrics
 
 
 dados = pd.read_csv('data.csv')
-dados.drop(['id', 'Unnamed: 32'], axis = 1, inplace = True)
+dados.drop(['id'], axis = 1, inplace = True)
 le = LabelEncoder()
-dados['diagnosis']=le.fit_transform(dados['diagnosis'])
+dados['Grau Austismo']=le.fit_transform(dados['Grau Austismo'])
 print("Quantidade de colunas: ",dados.shape[1])
 dados.head(10)
 
@@ -38,8 +38,8 @@ print("Quantidade de colunas do dataframe reduzido: ",dados2.shape[1])
 
 
 
-X = dados2.drop(["diagnosis"] ,axis="columns")
-y = dados2['diagnosis']
+X = dados2.drop(["Grau Austismo"] ,axis="columns")
+y = dados2['Grau Austismo']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
 modelo = linear_model.LogisticRegression()
 modelo.fit(X_train, y_train)
@@ -61,8 +61,8 @@ print(relatorio)
 
 
 
-X = dados2.drop(["diagnosis"] ,axis="columns")
-y = dados2['diagnosis']
+X = dados2.drop(["Grau Austismo"] ,axis="columns")
+y = dados2['Grau Austismo']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
 modelo = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0)
 modelo.fit(X_train, y_train)
@@ -77,8 +77,8 @@ print(relatorio)
 
 
 
-X = dados2.drop(["diagnosis"] ,axis="columns")
-y = dados2['diagnosis']
+X = dados2.drop(["Grau Austismo"] ,axis="columns")
+y = dados2['Grau Austismo']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
 modelo = DecisionTreeClassifier(criterion='entropy', max_depth=5, random_state=0)
 modelo.fit(X_train, y_train)
@@ -92,8 +92,8 @@ print(relatorio)
 
 
 
-X = dados2.drop(["diagnosis"] ,axis="columns")
-y = dados2['diagnosis']
+X = dados2.drop(["Grau Austismo"] ,axis="columns")
+y = dados2['Grau Austismo']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42, shuffle=True)
 modelo = DecisionTreeClassifier(criterion='entropy', max_depth=10, random_state=0)
 modelo.fit(X_train, y_train)
@@ -113,12 +113,12 @@ def teste(dados):
     arquivo = pd.read_csv('example.csv') # lê os dados do arquivo csv que foi escrito
     lista_numpy = modelo.predict(arquivo) # utiliza a árovere e retorna um resultado
     lista_resultado = lista_numpy.tolist() # convertendo o resultado que está como listanumpy em lista
-    match lista_resultado[0]: #o resultado retornado é 0 para negativo e 1 para positivo nesse exemplo
-        case 0:
+    if lista_resultado[0]==0: #o resultado retornado é 0 para negativo e 1 para positivo nesse exemplo
+      
             resposta = 'negativo'
-        case 1:
+    elif  lista_resultado[0]==1:
             resposta = 'positivo'
-        case default:
+    else:
             resposta = 'erro'
     
     return resposta
