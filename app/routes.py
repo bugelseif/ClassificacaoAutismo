@@ -15,7 +15,7 @@ def index():
 
 @app.route('/exemplo') # rota apenas de exemplo
 def exemplo(): 
-    dados = "3,1,0,0,1,3,3,2,0,1,1,0,0,1,0,0,1,0,0,0,1"
+    dados = "1,0,1,3,3,2,0,1,1,0,0,1,0,0,1,0,0,0,1"
     response = requests.get("http://127.0.0.1:5000/resultado/" + dados)
     resposta = response.json()
     return jsonify(resposta)
