@@ -1,49 +1,55 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3> Entre com os dados </h3>
-           
-    <form action="" method="POST">
-        {{ form.hidden_tag() }}
-        <p> Gênero da Criança </p>
-        {{ form.genero}}
-        <p> Dificuldades de comunicação? </p>
-        {{ form.comunicacao}}
-        <p> Comportamentos repetitivos interação ? </p>
-        {{ form.repetitivos}}
-        <p> A criança  interage socialmente  ? </p>
-        {{ form.social}}
-        <p> Presença ou não de fala ? </p>
-        {{ form.fala}}
-        <p> Não olha nos olhos mesmo quando alguém fala com ela (e) ? </p>
-        {{ form.olhos}}
-        <p> Risos e gargalhadas fora de hora, como por exemplo durante um velório ou um casamento   ? </p>
-        {{ form.risos}}
-        <p> Não gosta de carinho ou afeto e por isso não se deixa abraçar ou beijar   ? </p>
-        {{ form.carinho}}
-        <p> Dificuldade em relacionar-se com outras crianças ? </p>
-        {{ form.relacionamento}}
-        <p> Repetir 3 as mesmas coisas, sons e palavras; brincar 3 com os mesmos brinquedos ? </p>
-        {{ form.brinquedos}}
-        <p>  Sabe falar, mas prefere não se comunicar  ? </p>
-        {{ form.nao_verbal}}
-        <p> Quando fala, a comunicação é monótona ? </p>
-        {{ form.pergunta}}
-        <p> Repete uma pergunta várias vezes seguidas sem se importar se está chateando os outros  ? </p>
-        {{ form.expressao}}
-        <p> Não tem medo de situações perigosas, como por exemplo atravessar a rua sem olhar para os carros ? (Desconsiderando Bipolaridade)    </p>
-        {{ form.perigo}}
-        <p> Olha  na mesma direção como se estivesse parado no tempo? </p>
-        {{ form.tempo}}
-        <p> Fica se balançando para frente e para trás por vários minutos ou horas ou torcer as mãos ou os dedos constantemente  ? </p>
-        {{ form.balanca}}
-        <p> Dificuldade a se adaptar a uma nova rotina ficando agitado ? </p>
-        {{ form.rotina}}
-        <p> Fica extremamente agitado quando está em público ou em ambientes barulhentos  ? </p>
-        {{ form.agitado}}
+    <h3> Entre com os dados </h3>
+            
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <p> Gênero da Criança </p>
+            {{ form.genero}}
+            <p> Dificuldades de comunicação ?</p>
+            {{ form.comunicacao}}
+            <p> Comportamentos repetitivos interação ?</p>
+            {{ form.repetitivos}}
+            <p> A criança  interage socialmente ?</p>
+            {{ form.social}}
+            <p> Presença ou não de fala ?</p>
+            {{ form.fala}}
+            <p> Não olha nos olhos mesmo quando alguém fala com ela (e) ?</p>
+            {{ form.olhos}}
+            <p> Risos e gargalhadas fora de hora, como por exemplo durante um velório ou um casamento ?</p>
+            {{ form.risos}}
+            <p> Não gosta de carinho ou afeto e por isso não se deixa abraçar ou beijar ?</p>
+            {{ form.carinho}}
+            <p> Dificuldade em relacionar-se com outras crianças ? </p>
+            {{ form.relacionamento}}
+            <p> Repetir 3 as mesmas coisas, sons e palavras; brincar 3 com os mesmos brinquedos ?</p>
+            {{ form.brinquedos}}
+            <p>  Sabe falar, mas prefere não se comunicar  ?</p>
+            {{ form.nao_verbal}}
+            <p> Quando fala, a comunicação é monótona ?</p>
+            {{ form.pergunta}}
+            <p> Repete uma pergunta várias vezes seguidas sem se importar se está chateando os outros ?</p>
+            {{ form.expressao}}
+            <p> Não tem medo de situações perigosas, como por exemplo atravessar a rua sem olhar para os carros ? (Desconsiderando Bipolaridade)</p>
+            {{ form.perigo}}
+            <p> Olha  na mesma direção como se estivesse parado no tempo ?</p>
+            {{ form.tempo}}
+            <p> Fica se balançando para frente e para trás por vários minutos ou horas ou torcer as mãos ou os dedos constantemente ?</p>
+            {{ form.balanca}}
+            <p> Dificuldade a se adaptar a uma nova rotina ficando agitado ?</p>
+            {{ form.rotina}}
+            <p> Fica extremamente agitado quando está em público ou em ambientes barulhentos ?</p>
+            {{ form.agitado}}
 
-        <p>{{ form.submit() }}</p>
-    </form>
-   
+            <p>{{ form.submit() }}</p>
+        </form>
+
+        <footer class="rodape">
+            <p class="direitos">
+                &copy; Todos os direitos reservados  
+            </p>
+        </footer>
+    
 
 {% endblock %}

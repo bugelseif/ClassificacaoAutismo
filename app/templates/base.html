@@ -54,7 +54,6 @@
                   width: 619px;
                 
               }
-
                 .navbar { /*menu*/
                     position: relative;
                     display: flex;
@@ -72,23 +71,50 @@
                     font-size: 22px;
                     font-weight: bold;   /*deixar em negrito*/
                     text-align: center; /* Menu centralizado */   
+                    
+                    
+                }
+               
+                /*Ao passar o mouse por cima*/
+                a.nav-item.nav-link:hover{
+                    background-color: #B22222; /* Muda a cor de fundo*/
+                    color: white; /* Muda a cor do texto para branco */
+                }
+               
+                h2{  /* sobre autismo */
+                  text-align: center;
+                  font-size: 30px;
+                  margin-top: 77px; /* altura de cima */
+                  margin-bottom: 2.5rem; /* altura de baixo */
                 }
                 h3{
                   text-align: center;
-                  font-weight: bold;   /*deixar em negrito*/
+                  font-size: 30px;
+                  margin-top: 77px; /* altura de cima */
+                  margin-bottom: 2.5rem; /* altura de baixo */
                 }
-                 h5{
-                  font-weight: bold;   /*deixar em negrito*/
-                
-                 }
                  p{
                   font-weight: bold;   /*deixar em negrito*/
+                 }
+                 #texto-index, p{    /*texto sobre o autismo*/
+                  text-align: center;
+        
                  }
 
                  form{
                   text-align:center;
+                 
                  }
 
+                 .direitos {
+                  font-size: 18px;
+                  color: #000000;
+                  text-align: center;
+                  padding: 18px 0;
+                  padding-top: 50px;
+              }
+
+              
             </style>
 
         </head>
@@ -107,7 +133,7 @@
                       <div class="carousel-item active">
                         <img class="img-autismo1" src={{ url_for('static', filename='autismo1.png') }} alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5 style="color:#000000">Jesica Del Carmen Perez.</h5>
+                          <h4 style="color:#000000">Jesica Del Carmen Perez.</h4>
                           <p style="color:#000000" >As crianças especiais, assim como as aves, são diferentes em seus vôos. <br> 
                             Todas, no entanto, são iguais em seu direito de voar. </p>
                         </div>
