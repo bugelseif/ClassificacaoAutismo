@@ -25,14 +25,35 @@
                 }
 
                 img.img-autismo1{
-                    margin: 0px 0px 300px;
+                    margin: 0px 10% 0px;
+                    height: 325px;
+                    width: 619px;
+                  
                 }
                 img.img-autismo2{
-                    margin: 0px 0px 300px;
+                    margin: 0px 420px 0px;
+                    height: 325px;
+                    width: 619px;
+                  
                 }
                 img.img-autismo3{
-                    margin: 0px 0px 300px;
+                    margin: 0px 440px 0px;
+                    height: 325px;
+                    width: 470px;
+                  
                 }
+                img.img-autismo4{
+                    margin: 0px 420px 0px;
+                    height: 325px;
+                    width: 619px;
+                  
+                }
+                img.img-autismo5{
+                  margin: 0px 420px 0px;
+                  height: 325px;
+                  width: 619px;
+                
+              }
 
                 .navbar { /*menu*/
                     position: relative;
@@ -52,7 +73,21 @@
                     font-weight: bold;   /*deixar em negrito*/
                     text-align: center; /* Menu centralizado */   
                 }
+                h3{
+                  text-align: center;
+                  font-weight: bold;   /*deixar em negrito*/
+                }
+                 h5{
+                  font-weight: bold;   /*deixar em negrito*/
+                
+                 }
+                 p{
+                  font-weight: bold;   /*deixar em negrito*/
+                 }
 
+                 form{
+                  text-align:center;
+                 }
 
             </style>
 
@@ -64,30 +99,41 @@
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
                     </div>
 
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <img class="img-autismo1" src={{ url_for('static', filename='autismo1.png') }} alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5>First slide label</h5>
-                          <p>Some representative placeholder content for the first slide.</p>
+                          <h5 style="color:#000000">Jesica Del Carmen Perez.</h5>
+                          <p style="color:#000000" >As crianças especiais, assim como as aves, são diferentes em seus vôos. <br> 
+                            Todas, no entanto, são iguais em seu direito de voar. </p>
                         </div>
                       </div>
 
                       <div class="carousel-item">
                         <img class="img-autismo2" src={{ url_for('static', filename='autismo2.png') }} alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5>Second slide label</h5>
-                          <p>Some representative placeholder content for the second slide.</p>
                         </div>
                       </div>
 
                       <div class="carousel-item">
                         <img class="img-autismo3" src={{ url_for('static', filename='autismo3.png') }} alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5>Third slide label</h5>
-                          <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                      </div>
+
+                      <div class="carousel-item">
+                        <img class="img-autismo4" src={{ url_for('static', filename='autismo4.png') }} alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                      </div>
+
+                      <div class="carousel-item">
+                        <img class="img-autismo5" src={{ url_for('static', filename='autismo5.png') }} alt="...">
+                        <div class="carousel-caption d-none d-md-block">
                         </div>
                       </div>
                     </div>
@@ -106,8 +152,9 @@
                 <nav>
                     <ul class="navbar navbar-light" style="background-color: #A52A2A;">
                         <a class="nav-item nav-link" href={{ url_for("index") }}>Início</a>
-                        <a class="nav-item nav-link" href={{ url_for("sobre") }}>Sobre Autismo</a>
-                        <a class="nav-item nav-link" href={{ url_for("classifica") }}>Classificação de Autismo</a>
+                        <a class="nav-item nav-link" href={{ url_for("sobre") }}>Sobre</a>
+                        <a class="nav-item nav-link" href={{ url_for("usuario") }}>Classificação de Autismo</a>
+                        
                     </ul>
                 </nav>
 

@@ -27,5 +27,5 @@ class DadosUsuario(FlaskForm):
     
     
     
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Enviar')
 
