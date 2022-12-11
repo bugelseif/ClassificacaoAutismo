@@ -11,7 +11,7 @@ import requests
 @app.route('/')
 @app.route('/index')
 def index():                
-    return render_template('base.html')
+    return render_template('index.html')
 
 @app.route('/exemplo') # rota apenas de exemplo
 def exemplo(): 
@@ -54,3 +54,4 @@ def usuario():
 @app.route('/sobre')
 def sobre(): 
         return render_template('sobre.html') # vai renderizar as informaçoes do html com o json 
+    
