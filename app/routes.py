@@ -2,8 +2,9 @@ import json
 from flask import jsonify, render_template, flash, request
 from app.forms import DadosUsuario
 from .process.arvore import teste
+from .process.converte import conversao
 from app import app
-import requests
+# import requests
 
 
 
@@ -13,12 +14,12 @@ import requests
 def index():                
     return render_template('index.html')
 
-@app.route('/exemplo') # rota apenas de exemplo
-def exemplo(): 
-    dados = "1,0,1,3,3,2,0,1,1,0,0,1,0,0,1,0,0,0,1"
-    response = requests.get("http://127.0.0.1:5000/resultado/" + dados)
-    resposta = response.json()
-    return jsonify(resposta)
+# @app.route('/exemplo') # rota apenas de exemplo
+# def exemplo(): 
+#     dados = "1,0,1,3,3,2,0,1,1,0,0,1,0,0,1,0,0,0,1"
+#     response = requests.get("http://127.0.0.1:5000/resultado/" + dados)
+#     resposta = response.json()
+#     return jsonify(resposta)
 
 @app.route('/resultado/<dados>')# recebe dados anexados na rota, no momento recebe uma string e separa elementos por vírgula, formatação pode ser modificada depois
 def resultado(dados): 
@@ -27,12 +28,12 @@ def resultado(dados):
     return jsonify(verificacao)
 
 # Exemplo utilizando formatação do form, eu usei letras do alfabeto como argumentos mas no form seriam o name de cada campo 
-@app.route('/exemploForms')
-def exemplo_form(): 
-    dados = "a=1&b=0&c=1&d=3&e=3&f=2&g=0&h=1&i=1&j=0&k=0&l=1&m=0&n=0&o=1&p=0&q=0&r=0&s=1"   
-    response = requests.get("http://127.0.0.1:5000/resultadoForms?" + dados)
-    resposta = response.json()
-    return jsonify(resposta)
+# @app.route('/exemploForms')
+# def exemplo_form(): 
+#     dados = "a=1&b=0&c=1&d=3&e=3&f=2&g=0&h=1&i=1&j=0&k=0&l=1&m=0&n=0&o=1&p=0&q=0&r=0&s=1"   
+#     response = requests.get("http://127.0.0.1:5000/resultadoForms?" + dados)
+#     resposta = response.json()
+#     return jsonify(resposta)
 
 
 # É para funcionar com form, a orderm dos dados precisa ser a mesma que do arquivo csv usado para criar a árvore
@@ -43,12 +44,34 @@ def resultado_form():
     verificacao = teste(dados) 
     return jsonify(verificacao)
 
-@app.route('/usuario')
+@app.route('/usuario', methods=['GET','POST'])
 def usuario(): 
     form = DadosUsuario()
-    if form.validate_on_submit():#verifica se tem informaçoes no formulario
-        teste = form.genero.data
-        return render_template('classifica.html', teste=teste) # vai renderizar as informaçoes do html com o json 
+    if form.validate_on_submit(): #verifica se tem informaçoes no formulario
+        infos = [
+            form.genero.data,
+            form.comunicacao.data,
+            form.repetitivos.data,
+            form.social.data,
+            form.fala.data,
+            form.olhos.data,
+            form.risos.data,
+            form.carinho.data,
+            form.relacionamento.data,
+            form.brinquedos.data,
+            form.nao_verbal.data,
+            form.monotona.data,
+            form.pergunta.data,
+            # form.expressao.data,
+            # form.perigo.data,
+            # form.tempo.data,
+            # form.balanca.data,
+            # form.rotina.data,
+            # form.agitado.data
+            ]
+        converte = conversao(infos)
+        print(converte)
+        return render_template('resultado.html', converte=converte) # vai renderizar as informaçoes do html com o json 
     return render_template('classifica.html', form=form) #caso o form nao seja valido permanece na pagina escolha 
 
 @app.route('/sobre')
