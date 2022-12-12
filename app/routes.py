@@ -62,16 +62,19 @@ def usuario():
             form.nao_verbal.data,
             form.monotona.data,
             form.pergunta.data,
-            # form.expressao.data,
-            # form.perigo.data,
-            # form.tempo.data,
-            # form.balanca.data,
-            # form.rotina.data,
-            # form.agitado.data
+            form.expressao.data,
+            form.perigo.data,
+            form.tempo.data,
+            form.balanca.data,
+            form.rotina.data,
+            form.agitado.data
             ]
         converte = conversao(infos)
         print(converte)
-        return render_template('resultado.html', converte=converte) # vai renderizar as informaçoes do html com o json 
+
+        verificacao = teste(converte)
+
+        return render_template('resultado.html', verificacao=verificacao) # vai renderizar as informaçoes do html com o json 
     return render_template('classifica.html', form=form) #caso o form nao seja valido permanece na pagina escolha 
 
 @app.route('/sobre')
