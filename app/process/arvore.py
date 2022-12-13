@@ -58,6 +58,7 @@ matriz = confusion_matrix(y_test, y_pred)
 # print(matriz)
 relatorio = classification_report(y_test, y_pred)
 # print(relatorio)
+modelo.fit(X, y)
 
 
 def teste(dados):
@@ -67,7 +68,7 @@ def teste(dados):
         termos ="genero@Dificuldades de comunicação?@Comportamentos repetitivos interação ?@A criança  interage socialmente  ?@Presença ou não de fala ?@Não olha nos olhos mesmo quando alguém fala com ela (e) ?@Risos e gargalhadas fora de hora, como por exemplo durante um velório ou um casamento   ?@Não gosta de carinho ou afeto e por isso não se deixa abraçar ou beijar   ?@Dificuldade em relacionar-se com outras crianças    ?@Repetir as mesmas coisas, sons e palavras; brincar 3 com os mesmos brinquedos   ?@ Sabe falar, mas prefere não se comunicar  ?@Quando fala, a comunicação é monótona ?@Repete uma pergunta várias vezes seguidas sem se importar se está chateando os outros  ?@Tem 3 a mesma expressão no rosto e não entende gestos e expressões faciais dos outros   ?@Não tem medo de situações perigosas, como por exemplo atravessar a rua sem olhar para os carros ? (Desconsiderando Bipolaridade)   @Olha 3 na mesma direção como se estivesse parado no tempo?@Fica se balançando para frente e para trás por vários minutos ou horas ou torcer as mãos ou os dedos constantemente  ?@Dificuldade a se adaptar a uma nova rotina ficando agitado ?@Fica extremamente agitado quando está em público ou em ambientes barulhentos  ?"
         cabecalho = termos.split("@")
         writer.writerow(cabecalho) # cabeçalho
-        writer.writerow(dados.encode("utf8")) # dados
+        writer.writerow(dados) # dados
     arquivo = pd.read_csv('example.csv') # lê os dados do arquivo csv que foi escrito
    
     lista_numpy = modelo.predict(arquivo) # utiliza a árovere e retorna um resultado
