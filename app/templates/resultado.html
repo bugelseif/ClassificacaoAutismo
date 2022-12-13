@@ -1,27 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<p class="texto-resultado" style="color:#000000"> Segundo as informaçoes que você nos  <br>
-    forneceu o grau de autismo  <br>
-    Se encaixa em 
-     <br>
+    <p class="texto-resultado"> Segundo as informações que você nos <br>
+        forneceu, o grau de autismo <br>
+        se encaixa em: <br>
+    </p>
 
-<h3>
-    {{ verificacao }}
-</h3>
+    <h3>
+        {{ verificacao }}
+    </h3>
 
-<p class="texto-resultado" style="color:#000000"> Não esqueça de   <br>
-    procurar ajuda profissional   <br>
-    
+    <p class="texto-resultado"> Importante. <br>
+        Não esqueça de <br>
+        procurar ajuda profissional. <br>    
+    </p>
 
-
-
-</p>
-<footer class="rodape">
-    <p class="direitos">
-        &copy; Todos os direitos reservados  
-    </p>    
-</footer>
-    
+    <footer class="rodape">
+        <p class="direitos">
+            &copy; Todos os direitos reservados  
+        </p>    
+    </footer>
+        
 
 {% endblock %}
